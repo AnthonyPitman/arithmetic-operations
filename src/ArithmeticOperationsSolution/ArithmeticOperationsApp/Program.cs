@@ -39,7 +39,7 @@ public class Number
         set => _digits[index] = value;
     }
 
-    public Number(string number)
+    public Number(string number) // TODO: consider making this an implicit operator so that it these are just created like Number n = "123"
     {
         _digits.AddRange(Parse(number));
     }
@@ -50,7 +50,7 @@ public class Number
     {
         var answer = 0;
 
-        var count = 0; // Increment count in loop and add it to Math.Pow(10, 0);
+        var count = 0; // TODO: Increment count in loop and add it to Math.Pow(10, 0);
         for (var i = n1.Count - 1; i >= 0; i--)
         {
             answer += (n1[i].Value - '0') + (n2[i].Value - '0') * (int)(Math.Pow(10, 0));
