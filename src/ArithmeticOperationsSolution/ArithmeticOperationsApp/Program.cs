@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Number n = new("12");
-        Number n2 = new("11");
+        Number n = new("9");
+        Number n2 = new("9");
         Console.WriteLine(n);
         Console.WriteLine(n2);
         Console.WriteLine("--");
@@ -50,10 +50,20 @@ public class Number
     {
         var answer = 0;
 
-        var count = 0; // TODO: Increment count in loop and add it to Math.Pow(10, 0);
+        var count = 0;
+        var carry = 0;
         for (var i = n1.Count - 1; i >= 0; i--)
         {
-            answer += (n1[i].Value - '0') + (n2[i].Value - '0') * (int)(Math.Pow(10, 0));
+            var value = ((n1[i].Value - '0') + (n2[i].Value - '0') + carry);
+            carry = value / 10;
+            var temp = value % 10 * (int)(Math.Pow(10, count));
+            answer += temp;
+            count++;
+        }
+
+        if (carry > 0)
+        {
+            answer += carry * (int)(Math.Pow(10, count));
         }
 
         return new Number(answer.ToString());
