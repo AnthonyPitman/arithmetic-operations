@@ -46,6 +46,7 @@ public class Number
 
     public int Count => _digits.Count;
 
+    // TODO: after unit tests, refactor
     public static Number Add(Number n1, Number n2)
     {
         var answer = 0;
